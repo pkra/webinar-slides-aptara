@@ -1,1 +1,947 @@
-A github page
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>MathML Webinar</title>
+
+		<meta name="description" content="Taking math and science to the web">
+		<meta name="author" content="Peter Krautzberger">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/moon.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+			
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                # MathML
+                                                ### math made for the web and beyond
+                                                Aptara Webinar 
+                                                Peter Krautzberger
+                                                
+                                                *MathJax*
+                                        </script>
+                                </section>
+
+
+
+
+                                <section>
+                                
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                ## What is MathML?
+                                                
+                                                <p class="fragment">Math notation for HTML and XML</p>
+                                                
+                                                <p class="fragment">Input </p>
+                                                <pre class="fragment"><code data-trim contenteditable>
+                                                <math>
+                                                   <mfrac>
+                                                       <mn>1</mn>
+                                                       <mn>2</mn>
+                                                   </mfrac>
+                                                </math>
+                                                </code></pre>
+                                                
+                                                
+                                                <p class="fragment">Output</p>
+                                                
+                                                <p class="fragment">
+                                                <math> <mfrac> <mn>1</mn> <mn>2</mn> </mfrac> </math>
+                                                </p>
+                                                
+                                                <blockquote class="fragment">Not that spectacular, right?</blockquote>
+                                        </script>
+                                </section>
+
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                ## But it is!
+                                                
+                                                <blockquote class="fragment">All mathematical content can be represented in MathML</blockquote>
+                                </script>
+                                </section>
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                ### Presentation MathML vs Content MathML
+                                                Example: <math>
+                                                  <mroot>
+                                                    <mi>a</mi>
+                                                    <mi>n</mi>
+                                                  </mroot>
+                                                </math>
+                                                
+                                                <pre class="fragment"><code data-trim contenteditable>
+Presentation MathML
+<math>
+  <mroot>
+    <mi>a</mi>
+    <mi>n</mi>
+  </mroot>
+</math>
+                                                </code></pre>
+                                                
+                                                <pre class="fragment"><code data-trim contenteditable>
+Content MathML
+<math> 
+      <apply> 
+        <root/> 
+        <degree> 
+          <ci type='integer'> n </ci> 
+        </degree> 
+        <ci> a </ci> 
+      </apply> 
+</math>
+                                                </code> Content MathML should be converted to Presentation MathML for the web.</pre>
+                                                
+                                        </script>
+                                </section>
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                ### Resources
+                                                
+                                                <ul>
+                                                <li> [developer.mozilla.org/MathML](https://developer.mozilla.org/en-US/docs/Web/MathML)</li>
+                                                <li> [Webplatform.org](http://docs.webplatform.org/wiki/mathml)</li>
+                                                <li> [MathML spec](http://www.w3.org/Math/draft-spec/)</li>
+                                                </ul>
+                                </script>
+                                </section>
+
+                                </section>
+
+
+                                <section>
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                ## Benefits
+                                                * Native
+                                                * Reusable
+                                                * Dynamic
+                                                * Accessible
+                                        </script>
+                                        
+                                </section>
+                                
+                                
+                                <section>
+<h3>Accessibility examples</h3>
+
+<p>From Design Science's <a href="http://www.dessci.com/en/products/mathplayer/tech/mathml3-elemmath-examples.htm#demo">MathPlayer demo page</a>.</p>
+
+<p><object id="scPlayer" width="361" height="294"><param name="movie" value="http://content.screencast.com/users/Neil_Soiffer/folders/Jing/media/2db9e04e-7dd0-4b3e-b5a4-26ad05e92288/jingswfplayer.swf" /><param name="quality" value="high" /><param name="bgcolor" value="#FFFFFF" /><param name="flashVars" value="thumb=http://content.screencast.com/users/Neil_Soiffer/folders/Jing/media/2db9e04e-7dd0-4b3e-b5a4-26ad05e92288/FirstFrame.jpg&amp;containerwidth=394&amp;containerheight=361&amp;content=http://content.screencast.com/users/Neil_Soiffer/folders/Jing/media/2db9e04e-7dd0-4b3e-b5a4-26ad05e92288/2010-07-28_2149.swf&amp;blurover=false" /><param name="allowFullScreen" value="true" /><param name="scale" value="showall" /><param name="allowScriptAccess" value="always" /><param name="base" value="http://content.screencast.com/users/Neil_Soiffer/folders/Jing/media/2db9e04e-7dd0-4b3e-b5a4-26ad05e92288/" /></object></p>
+<p> <a href="http://www.chromevox.com/">ChromeVox</a> </p>
+<iframe width="320" height="280" src="http://www.youtube.com/embed/HVviF06S1T8" frameborder="0" allowfullscreen></iframe>
+</section>
+
+                                </section>
+
+                                <section>
+                                                <h2> How to push MathML forward?</h2>
+                                                <ul>
+                                                <li>Use it!</li>
+                                                <ul> 
+                                                <li class="fragment"><strong><em>Always</em></strong> include MathML</li>
+                                                <li class="fragment"> Even when using fallback</li>
+                                                <li class="fragment">use annotations for alternative formats</li>
+                                                </ul>
+                                                <li class="fragment"> Understand the pitfalls</li>
+                                                <ul>
+                                                <li class="fragment">Browser support</li>
+                                                <li class="fragment">ereading systems</li>
+                                                </ul>
+                                                <li class="fragment">Overcome the pitfalls</li>
+                                                <ul>
+                                                <li class="fragment">polyfills</li>
+                                                <li class="fragment">fallbacks</li>
+                                                </ul>
+                                        </script>
+                                </section>
+
+
+<!--
+                                <section>
+<script>
+function myFunction()
+{
+MathJax.Hub.Queue(["Typeset",MathJax.Hub,"MathExample"]);;
+}
+</script>
+                                <h2> So why MathJax? </h2>
+                                See the difference:
+                                
+                                <button onclick="myFunction()">MathJax it!</button>
+                                <div class="tex2jax_ignore"><div id="MathExample"> $$f: X \rightarrow Y$$ </div></div>
+                               
+                                </section>
+-->
+
+                                <section>
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                ## MathML in the browser
+                                                
+                                                <ul>
+                                                <li class="fragment">Firefox/Gecko: <a href="https://developer.mozilla.org/en-US/docs/Mozilla/MathML_Project/Status">good</a></li>
+                                                <li class="fragment">Safari/WebKit: <a href="https://trac.webkit.org/wiki/MathML%20Status">not-yet-good-enough</a></li>
+                                                <li class="fragment">IE, Chrome/Opera: none</li>
+                                                <li class="fragment">(IE+MathPlayer: great)</li>
+                                                </ul>
+                                                <hr class="fragment">
+                                                <p class="fragment"> Polyfills </p>
+                                                  <ul> 
+                                                  <li class="fragment">MathJax: <a href"http://docs.mathjax.org/en/latest/mathml.html">good support</a>, high quality rendering</li>
+                                                  <li class="fragment">jqmath: <a href="http://mathscribe.com/author/jqmath.html">decent support</a>, fast</li>
+                                                  <li class="fragment"><a href="http://www.w3.org/Math/testsuite/results/tests.html">MathML Test suite results</a></li>
+                                                  </ul>
+                                        </script>
+                                </section>
+                                <section>
+                                <h2>Easy example</h2>
+                                <math display="block"> <mtable>  
+
+<mtr>
+
+<mtd>
+<mrow>
+  <msubsup>
+    <mo stretchy="false">∫</mo>
+    <mn>1</mn>
+    <mi>x</mi>
+ </msubsup>
+ <mfrac>
+
+   <mrow><mo mathvariant="italic">d</mo><mi>t</mi></mrow>
+   <mi>t</mi>
+ </mfrac>
+</mrow>
+</mtd>
+
+
+<mtd>
+</mtd>
+
+
+<mtd>
+<mrow>
+  <mrow>
+
+
+    <mo>(</mo>
+    <mfrac linethickness="0">
+      <mi>p</mi>
+      <mn>2</mn>
+    </mfrac>
+    <mo>)</mo>
+  </mrow>
+
+  <msup>
+    <mi>x</mi>
+    <mn>2</mn>
+  </msup>
+  <msup>
+    <mi>y</mi>
+    <mrow>
+
+      <mi>p</mi>
+      <mo>-</mo>
+      <mn>2</mn>
+    </mrow>
+  </msup>
+  <mo>-</mo>
+  <mfrac>
+
+    <mn>1</mn>
+    <mrow>
+      <mn>1</mn>
+      <mo>-</mo>
+      <mi>x</mi>
+    </mrow>
+  </mfrac>
+
+  <mfrac>
+    <mn>1</mn>
+    <mrow>
+      <mn>1</mn>
+      <mo>-</mo>
+      <msup>
+        <mi>x</mi>
+
+        <mn>2</mn>
+      </msup>
+    </mrow>
+  </mfrac>
+</mrow>
+</mtd>
+
+</mtr>
+
+
+
+
+
+        <mtr>
+            <mtd>
+            </mtd>
+            <mtd>
+
+              <mspace height="50px" width="50px"></mspace>
+
+            </mtd>
+            <mtd>
+            </mtd>
+          </mtr>
+
+<mtr>
+
+<mtd>
+  <mrow>
+    <mi>x</mi>
+    <mo>=</mo>
+    <mfrac>
+      <mrow>
+        <mo>−</mo>
+        <mi>b</mi>
+        <mo>±</mo>
+        <msqrt>
+          <mrow>
+            <msup>
+              <mi>b</mi>
+              <mn>2</mn>
+            </msup>
+            <mo>−</mo>
+            <mn>4</mn>
+            <mi>a</mi>
+            <mi>c</mi>
+          </mrow>
+        </msqrt>
+      </mrow>
+      <mrow>
+        <mn>2</mn>
+        <mi>a</mi>
+      </mrow>
+    </mfrac>
+  </mrow>
+
+</mtd>
+
+<mtd>
+</mtd>
+
+<mtd>
+ <msup>
+    <mrow>
+      <mo>(</mo>
+      <munderover>
+        <mo>∑<!-- ∑ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi>k</mi>
+          <mo>=</mo>
+          <mn>1</mn>
+        </mrow>
+        <mi>n</mi>
+      </munderover>
+      <msub>
+        <mi>a</mi>
+        <mi>k</mi>
+      </msub>
+      <msub>
+        <mi>b</mi>
+        <mi>k</mi>
+      </msub>
+      <mo>)</mo>
+    </mrow>
+    <mn>2</mn>
+  </msup>
+  <mo>≤<!-- ≤ --></mo>
+  <mrow>
+    <mo>(</mo>
+    <munderover>
+      <mo>∑<!-- ∑ --></mo>
+      <mrow class="MJX-TeXAtom-ORD">
+        <mi>k</mi>
+        <mo>=</mo>
+        <mn>1</mn>
+      </mrow>
+      <mi>n</mi>
+    </munderover>
+    <msubsup>
+      <mi>a</mi>
+      <mi>k</mi>
+      <mn>2</mn>
+    </msubsup>
+    <mo>)</mo>
+  </mrow>
+  <mrow>
+    <mo>(</mo>
+    <munderover>
+      <mo>∑<!-- ∑ --></mo>
+      <mrow class="MJX-TeXAtom-ORD">
+        <mi>k</mi>
+        <mo>=</mo>
+        <mn>1</mn>
+      </mrow>
+      <mi>n</mi>
+    </munderover>
+    <msubsup>
+      <mi>b</mi>
+      <mi>k</mi>
+      <mn>2</mn>
+    </msubsup>
+    <mo>)</mo>
+  </mrow>
+
+</mtd>
+
+
+</mtr>
+
+
+ </mtable>
+ </math>
+
+                                </section>
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                ## Firefox 23
+                                                <img src="easy--win7_firefox_23.0.png"  style="width:20em;"/>
+                                                ## Safari 7
+                                                <img src="easy--ios7.png" style="width:20em;"/>
+
+                                        </script>
+                                </section>
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                ## MathPlayer
+                                                <img src="easy--MathPlayer.png"  style="width:20em;"/>
+                                                ## Opera 12.16
+                                                <img src="easy--win7_opera_12.16.png" style="width:20em;"/>
+
+                                        </script>
+                                </section>
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                ## MathJax
+                                                <img src="easy--mathjax.png"  style="width:20em;"/>
+                                                
+                                                ## jqmath
+                                                <img src="easy--jqmath.png" style="width:20em;"/>
+
+                                        </script>
+                                </section>
+                                <section>
+                                <h2>Hard example</h2>
+                                <div style="font-size: 50%;">
+                                <math>
+        <mtable equalcolumns="false" equalrows="false">
+          <mtr>
+            <mtd>
+<mrow>
+  <mi>k</mi>
+  <mo>⋅<!-- ⋅ --></mo>
+  <mi>x</mi>
+  <mo>=</mo>    
+  <mover>
+    <mrow>
+
+      <mi>x</mi>
+      <mo>+</mo>
+      <mo>...</mo>
+      <mo>+</mo>
+      <mi>x</mi>
+    </mrow>
+    <mover>
+      <mo>⏞</mo>
+      <mrow>
+        <mi>k</mi>
+        <mspace width="thinmathspace"></mspace>
+        <mtext>times</mtext>
+      </mrow>
+    </mover>
+</mover></mrow>
+  
+
+            </mtd>
+            <mtd>
+              <mo stretchy="true">←</mo>
+            </mtd>
+            <mtd>
+
+       <mstyle displaystyle="true">
+          <mrow>
+            <mo>{</mo>
+            <mtable columnalign="right center left" equalrows="false" equalcolumns="false">
+              <mtr>
+                <mtd>
+
+                  <mrow>
+                    <mo>∇</mo>
+                    <mtext>​</mtext>
+                    <mo>×</mo>
+                    <munderover accent="true">
+                      <mstyle fontweight="bold">
+                        <mi>B</mi>
+                      </mstyle>
+                      <mrow></mrow>
+                      <mo stretchy="true">↼</mo>
+                    </munderover>
+                    <mo>-</mo>
+                    <mtext> </mtext>
+                    <mfrac>
+                      <mn>1</mn>
+                      <mi>c</mi>
+                    </mfrac>
+                    <mtext> </mtext>
+                    <mfrac>
+                      <mrow>
+                        <mo>∂</mo>
+                        <mtext>​</mtext>
+                        <munderover accent="true">
+                          <mstyle fontweight="bold">
+                            <mi>E</mi>
+                          </mstyle>
+                          <mrow></mrow>
+                          <mo stretchy="true">↼</mo>
+                        </munderover>
+                      </mrow>
+                      <mrow>
+                        <mo>∂</mo>
+                        <mtext>​</mtext>
+                        <mi>t</mi>
+                      </mrow>
+                    </mfrac>
+                  </mrow>
+
+                </mtd>
+                <mtd>
+                  <mo>=</mo>
+                </mtd>
+                <mtd>
+                  <mrow>
+                    <mfrac>
+                      <mrow>
+                        <mn>4</mn>
+                        <mi>π</mi>
+                      </mrow>
+                      <mi>c</mi>
+                    </mfrac>
+                    <mtext> </mtext>
+                    <munderover accent="true">
+                      <mstyle fontweight="bold">
+                        <mi>j</mi>
+                      </mstyle>
+                      <mrow></mrow>
+                      <mo stretchy="true">↼</mo>
+                    </munderover>
+                  </mrow>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mrow>
+                    <mo>∇</mo>
+                    <mtext>​</mtext>
+                    <mo>·</mo>
+                    <munderover accent="true">
+                      <mstyle fontweight="bold">
+                        <mi>E</mi>
+                      </mstyle>
+                      <mrow></mrow>
+                      <mo stretchy="true">↼</mo>
+                    </munderover>
+                  </mrow>
+                </mtd>
+                <mtd>
+                  <mo>=</mo>
+                </mtd>
+                <mtd>
+                  <mrow>
+                    <mn>4</mn>
+                    <mi>π</mi>
+                    <mi>ρ</mi>
+                  </mrow>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mrow>
+                    <mo>∇</mo>
+                    <mtext>​</mtext>
+                    <mo>×</mo>
+                    <munderover accent="true">
+                      <mstyle fontweight="bold">
+                        <mi>E</mi>
+                      </mstyle>
+                      <mrow></mrow>
+                      <mo stretchy="true">↼</mo>
+                    </munderover>
+                    <mtext> </mtext>
+                    <mo>+</mo>
+                    <mtext> </mtext>
+                    <mfrac>
+                      <mn>1</mn>
+                      <mi>c</mi>
+                    </mfrac>
+                    <mtext> </mtext>
+                    <mfrac>
+                      <mrow>
+                        <mo>∂</mo>
+                        <mtext>​</mtext>
+                        <munderover accent="true">
+                          <mstyle fontweight="bold">
+                            <mi>B</mi>
+                          </mstyle>
+                          <mrow></mrow>
+                          <mo stretchy="true">↼</mo>
+                        </munderover>
+                      </mrow>
+                      <mrow>
+                        <mo>∂</mo>
+                        <mtext>​</mtext>
+                        <mi>t</mi>
+                      </mrow>
+                    </mfrac>
+                  </mrow>
+                </mtd>
+                <mtd>
+                  <mo>=</mo>
+                </mtd>
+                <mtd>
+                  <munderover accent="true">
+                    <mstyle fontweight="bold">
+                      <mn>0</mn>
+                    </mstyle>
+                    <mrow></mrow>
+                    <mo stretchy="true">↼</mo>
+                  </munderover>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mrow>
+                    <mo>∇</mo>
+                    <mtext>​</mtext>
+                    <mo>·</mo>
+                    <munderover accent="true">
+                      <mstyle fontweight="bold">
+                        <mi>B</mi>
+                      </mstyle>
+                      <mrow></mrow>
+                      <mo stretchy="true">↼</mo>
+                    </munderover>
+                  </mrow>
+                </mtd>
+                <mtd>
+                  <mo>=</mo>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+          </mrow>
+        </mstyle>
+
+            </mtd>
+          </mtr>
+          <mtr>
+            <mtd>
+              <mo>↓</mo>
+            </mtd>
+            <mtd>
+
+              <mspace height="100px" width="150px"></mspace>
+
+            </mtd>
+            <mtd>
+              <mo>↑</mo>
+            </mtd>
+          </mtr>
+          <mtr>
+            <mtd>
+                <mlongdiv longdivstyle="lefttop">
+                  <mn> 3 </mn>
+                  <mn> 435.3</mn>
+                  <mn> 1306</mn>
+                  <msgroup position="2" shift="-1">
+                    <msgroup>
+                      <mn> 12</mn>
+                      <msline length="2"></msline>
+                    </msgroup>
+                    <msgroup>
+                      <mn> 10</mn>
+                      <mn> 9</mn>
+                      <msline length="2"></msline>
+                    </msgroup>
+                    <msgroup>
+                      <mn> 16</mn>
+                      <mn> 15</mn>
+                      <msline length="2"></msline>
+                      <mn> 1.0</mn>          
+                    </msgroup>
+                    <msgroup position="-1">  
+                      <mn> 9</mn>
+                      <msline length="3"></msline>
+                      <mn> 1</mn>
+                    </msgroup>
+                  </msgroup>
+                </mlongdiv>
+            </mtd>
+            <mtd>
+              <mo>→</mo>
+            </mtd>
+            <mtd>
+                  <mrow dir="rtl">
+                        <mrow>
+                          <mi>د</mi>
+                          <mo>⁡</mo>
+                          <mrow>
+                            <mo>(</mo>
+                            <mi>س</mi>
+                            <mo>)</mo>
+                          </mrow>
+                        </mrow>
+                        <mo>=</mo>
+                        <mrow>
+                          <mo>{</mo>
+                          <mtable>
+                            <mtr>
+                              <mtd>
+                                <mrow>
+                                  <munderover>
+                                    <mo movablelimits="false">∑</mo>
+                                    <mrow>
+                                      <mi>ٮ</mi>
+                                      <mo>=</mo>
+                                      <mn>1</mn>
+                                    </mrow>
+                                    <mi>ص</mi>
+                                  </munderover>
+                                  <mo>⁡</mo>
+                                  <msup>
+                                    <mi>س</mi>
+                                    <mi>ٮ</mi>
+                                  </msup>
+                                </mrow>
+                              </mtd>
+                              <mtd>
+                                <mrow>
+                                  <mtext>إذاكان </mtext>
+                                  <mi>س</mi>
+                                  <mo>&gt;</mo>
+                                  <mn>0</mn>
+                                </mrow>
+                              </mtd>
+                            </mtr>
+                            <mtr>
+                              <mtd>
+                                <mrow>
+                                  <msubsup>
+                                    <mo>∫</mo>
+                                    <mn>1</mn>
+                                    <mi>ص</mi>
+                                  </msubsup>
+                                  <mo>⁡</mo>
+                                  <mrow>
+                                    <msup>
+                                      <mi>س</mi>
+                                      <mi>ٮ</mi>
+                                    </msup>
+                                    <mo>⁢</mo>
+                                    <mi>ء</mi>
+                                    <mo>⁡</mo>
+                                    <mi>س</mi>
+                                  </mrow>
+                                </mrow>
+                              </mtd>
+                              <mtd>
+                                <mrow>
+                                  <mtext>إذاكان </mtext>
+                                  <mi>س</mi>
+                                  <mo>∈</mo>
+                                  <mi>م</mi>
+                                </mrow>
+                              </mtd>
+                            </mtr>
+                            <mtr>
+                              <mtd>
+                                <mrow>
+                                  <mi>طا</mi>
+                                  <mo>⁡</mo>
+                                  <mi>π</mi>
+                                </mrow>
+                              </mtd>
+                              <mtd>
+                                <mrow>
+                                  <mtext>غيرذلك </mtext>
+                                  <mrow>
+                                    <mo>(</mo>
+                                    <mtext>مع</mtext>
+                                    <mi>π</mi>
+                                    <mo>≃</mo>
+                                    <mn>3,141</mn>
+                                    <mo>)</mo>
+                                  </mrow>
+                                </mrow>
+                              </mtd>
+                            </mtr>
+                          </mtable>
+                        </mrow>
+                      </mrow>            </mtd>
+          </mtr>
+        </mtable>
+</math>
+</div>
+
+                                </section>
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                ## Firefox 23 
+                                                <img src="hard--win7_firefox_23.0.png"/>
+                                        </script>
+                                </section>
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                ## Safari 7
+                                                <img src="hard--ios7.png"/>
+
+                                        </script>
+                                </section>
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                ## MathPlayer
+                                                <img src="hard--MathPlayer.png" >
+                                        </script>
+                                </section>
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                ## Opera 12.13
+                                                <img src="hard--win7_opera_12.16.png"/>
+
+                                        </script>
+                                </section>
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                ## MathJax
+                                                <img src="hard--mathjax.png"/>
+                                        </script>
+                                </section>
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                ## jqmath                                                
+                                                <img src="hard--jqmath.png"/>
+
+                                        </script>
+                                </section>
+                                </section>
+
+
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                ### The forgotten issue
+                                                ## Math fonts
+                                                
+                                                <ul>    
+                                                <li class="fragment">Most fonts do not cover math</li>
+                                                <li class="fragment">Most math fonts not supported by renderers</li>
+                                                <li class="fragment">Solutions</li>
+                                                <ul>
+                                                <li class="fragment"><a href="http://www.stixfonts.org/">STIX Fonts</a>: open source, excellent coverage</li>
+                                                <li class="fragment">For Firefox: STIX, Asana fully supported, other math fonts should work ok (restrictons apply!)</li>
+                                                <li class="fragment">MathJax: TeX, STIX, Asana + 4 others</li>
+                                                </ul>
+                                                </ul>
+                                        </script>
+                                </section>
+
+
+                                <section>
+                                                <h2>Get involved</h2>
+                                                <ul>    
+                                                <li class="fragment">Push your MathML adoption</li>
+                                                <li class="fragment">Invest in solutions that work</li>
+                                                <ul>
+                                                <li class="fragment">use it on the open web</li>
+                                                <li class="fragment">push for reading system support</li>
+                                                <li class="fragment">consider specialized content-apps</li>
+                                                </ul>
+                                                <li class="fragment">Invest in polyfill development</li>
+                                                <li class="fragment">Invest in browser development</li>
+                                                </ul>
+                                </section>
+
+                                <section data-markdown>
+                                        <script type="text/template">
+                                                ## Authoring MathML
+                                                ⇒ Jean Kaplansky
+                                        </script>
+                                </section>
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+    math: {
+        mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+        config: 'TeX-AMS-MML_HTMLorMML'  // See http://docs.mathjax.org/en/latest/config-files.html
+    },
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/math/math.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
